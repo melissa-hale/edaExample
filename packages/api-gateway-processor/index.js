@@ -10,6 +10,11 @@ const RABBITMQ_URL = 'amqp://localhost';  // Adjust if RabbitMQ is not running l
 
 app.use(bodyParser.json());
 
+// Healthcheck endpoint
+app.get('/health', (req, res) => {
+    res.status(200).send({ status: 'ok' });
+  });
+
 app.post('/events', async (req, res) => {
     const { eventType } = req.body;
 
