@@ -1,8 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const amqp = require('amqplib');
 
 const app = express();
+const corstOptions = {
+    origin: ['http://localhost:3001', process.env.FRONTEND_PUBLIC_DOMAIN],
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 const PORT = process.env.PORT || 3000;
 
 // RabbitMQ connection string
