@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const amqp = require('amqplib');
 
 const app = express();
-const corstOptions = {
+const corsOptions = {
     origin: ['http://localhost:3001', process.env.FRONTEND_PUBLIC_DOMAIN],
     optionsSuccessStatus: 200
 };
