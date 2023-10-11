@@ -3,15 +3,18 @@ const bodyParser = require('body-parser');
 const amqp = require('amqplib');
 
 const app = express();
-const PORT = process.env.PORT || 3000;  // Adjust as needed
+const PORT = process.env.PORT || 3000;
 
 // RabbitMQ connection string
-const RABBITMQ_URL = 'amqp://localhost';  // Adjust if RabbitMQ is not running locally
+const RABBITMQ_URL = process.env.RABBITMQ_URL || 'amqp://localhost';
 
 app.use(bodyParser.json());
 
 // Healthcheck endpoint
 app.get('/health', (req, res) => {
+    // add logic that actually checks the health of the service
+    // there is also a notion of a deep health check
+    // for example, connect to RABBITMQ?
     res.status(200).send({ status: 'ok' });
   });
 
