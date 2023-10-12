@@ -38,7 +38,7 @@ app.get('/api/totalTopic2Requests', async (req, res) => {
 
 app.get('/api/rabbitmqTopic1Metrics', async (req, res) => {
     try {
-        const response = await axios.get(`${RABBITMQ_URL}:15672/api/queues`, {
+        const response = await axios.get(`http://${RABBITMQ_URL}:15672/api/queues`, {
             auth: {
                 username: process.env.RABBITMQ_USER,
                 password: process.env.RABBITMQ_PASSWORD

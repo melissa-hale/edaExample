@@ -3,7 +3,7 @@ import axios from 'axios';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import './App.css';
 
-const DASHBOARD_API_URL = process.env.DASHBOARD_API_URL;
+const DASHBOARD_API_URL = process.env.DASHBOARD_API_URL || 'dashboard-api-production-c497.up.railway.app';
 
 function Dashboard() {
   const [pgData, setpgData] = useState([]);
@@ -18,8 +18,8 @@ function Dashboard() {
 
   const fetchData = async () => {
     try {
-      const pgResponse = await axios.get(`${DASHBOARD_API_URL}/api/totalTopic1Requests`);
-      const rabbitResponse = await axios.get(`${DASHBOARD_API_URL}/api/rabbitmqTopic1Metrics`);
+      const pgResponse = await axios.get(`https://${DASHBOARD_API_URL}/api/totalTopic1Requests`);
+      const rabbitResponse = await axios.get(`https://${DASHBOARD_API_URL}/api/rabbitmqTopic1Metrics`);
       const currentTime = new Date().toLocaleTimeString();
 
       setpgData(prevData => [...prevData, { time: currentTime, requests: pgResponse.data.count }]);
