@@ -33,7 +33,7 @@ async function init() {
         connectionString: POSTGRES_URL,
     });
 
-    console.log(`Service1 is waiting for messages in topic: ${TOPIC}. To exit press CTRL+C`);
+    console.log(`Service1 is waiting for messages in topic: ${TOPIC}.`);
 
     channel.consume(TOPIC, async (msg) => {
         if (msg !== null) {
