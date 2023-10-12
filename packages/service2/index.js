@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const RABBITMQ_URL = process.env.RABBITMQ_URL;
 const POSTGRES_URL = process.env.POSTGRES_URL;
-const TOPIC = 'topic1';
+const TOPIC = 'topic2';
 const MAX_RETRIES = 5;
 const RETRY_DELAY = 3000;  // in milliseconds
 
@@ -33,7 +33,7 @@ async function init() {
         connectionString: POSTGRES_URL,
     });
 
-    console.log(`Service1 is waiting for messages in topic: ${TOPIC}. To exit press CTRL+C`);
+    console.log(`Service2 is waiting for messages in topic: ${TOPIC}.`);
 
     channel.consume(TOPIC, async (msg) => {
         if (msg !== null) {
@@ -42,7 +42,7 @@ async function init() {
 
             // Insert a record into the PostgreSQL database
             try {
-                await pool.query(`INSERT INTO topic1 (event_data) VALUES ($1)`, [event]);
+                await pool.query(`INSERT INTO topic2 (event_data) VALUES ($1)`, [event]);
                 console.log(`Inserted event into the database`);
                 channel.ack(msg);
             } catch (error) {

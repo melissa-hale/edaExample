@@ -61,5 +61,5 @@ app.post('/events', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`API Gateway running on http://localhost:${PORT}`);
+    console.log(`API Gateway running on port: ${PORT}`);
 });

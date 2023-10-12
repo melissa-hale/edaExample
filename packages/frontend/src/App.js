@@ -11,7 +11,7 @@ function App() {
     const API_ENDPOINT = process.env.REACT_APP_API_GATEWAY;
 
     for (let i = 0; i < count; i++) {
-      axios.post(API_ENDPOINT, {
+      axios.post(`${API_ENDPOINT}/events`, {
         eventType: service,
       }).then(() => {
         console.log(`Request to ${service} sent successfully!`);

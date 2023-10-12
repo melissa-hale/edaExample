@@ -1,0 +1,11 @@
+{
+    "prod": {
+      "driver": "pg",
+      "host": "viaduct.proxy.rlwy.net",
+      "database": "railway",
+      "user": "postgres",
+      "password": "5CBA*beDad*Ecffg64*3a*BBcFEeffF-",
+      "port": 59927
+    }
+  }
+  
