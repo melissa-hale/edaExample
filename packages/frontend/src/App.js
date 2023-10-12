@@ -13,7 +13,7 @@ function App() {
     console.log('test')
 
     for (let i = 0; i < count; i++) {
-      axios.post(`${API_ENDPOINT}/events`, {
+      axios.post(`https://${API_ENDPOINT}/events`, {
         eventType: service,
       }).then(() => {
         console.log(`Request to ${service} sent successfully!`);
