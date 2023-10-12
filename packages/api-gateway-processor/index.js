@@ -5,7 +5,7 @@ const amqp = require('amqplib');
 
 const app = express();
 const corsOptions = {
-    origin: ['http://localhost:3001', process.env.FRONTEND_PUBLIC_DOMAIN],
+    origin: ['http://localhost:3001', `https://${process.env.FRONTEND_PUBLIC_DOMAIN}`],
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
