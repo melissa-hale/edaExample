@@ -9,6 +9,7 @@ function App() {
   const sendRequests = (service, count) => {
     // Define the API endpoint (adjust the URL as needed)
     const API_ENDPOINT = process.env.REACT_APP_API_GATEWAY;
+    console.log(API_ENDPOINT)
 
     for (let i = 0; i < count; i++) {
       axios.post(`${API_ENDPOINT}/events`, {
