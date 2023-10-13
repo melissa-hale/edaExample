@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate:up": "node-pg-migrate up -m migrations/ -t service1_migrations",
-    "migrate:down": "node-pg-migrate down -m migrations/ -t service1_migrations"
+    "migrate:up": "node-pg-migrate up -m migrations/",
+    "migrate:down": "node-pg-migrate down -m migrations/"
   },
   "keywords": [],
   "author": "",
