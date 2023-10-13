@@ -16,8 +16,6 @@ async function processTopic2Message(channel, event) {
         const encryptedData = encrypt(randomWord);
 
         event.secretValue = encryptedData;
-        event.processed_at = new Date().toISOString();
-        event.total_time_ms = getDiffInMs(event.create_date, event.processed_at);
 
         channel.sendToQueue(TOPIC3, Buffer.from(JSON.stringify(event)));
         console.log(`Created message on queue on topic3`);
