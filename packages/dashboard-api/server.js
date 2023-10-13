@@ -3,9 +3,10 @@ const cors = require('cors');
 
 const app = express();
 const corsOptions = {
-    origin: ['http://localhost:3005', process.env.DASHBOARD_PUBLIC_DOMAIN],
+    origin: ['http://localhost:3005', `https://${process.env.DASHBOARD_PUBLIC_DOMAIN}`],
     optionsSuccessStatus: 200
 };
+console.log(process.env.DASHBOARD_PUBLIC_DOMAIN);
 app.use(cors(corsOptions));
 const port = process.env.PORT;
 
