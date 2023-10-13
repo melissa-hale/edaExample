@@ -1,8 +1,6 @@
-// migrations/{timestamp}-addTopic2Table.js
-
 exports.up = (pgm) => {
-    pgm.createTable("topic2", {
-      id: "id",
+    pgm.createTable('topic3', {
+      id: 'id',
       event_data: { type: "jsonb", notNull: true },
       created_at: {
         type: "timestamp",
@@ -13,6 +11,6 @@ exports.up = (pgm) => {
   };
   
   exports.down = (pgm) => {
-    pgm.dropTable("topic2");
+    pgm.dropTable('topic3');
   };
   

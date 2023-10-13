@@ -6,21 +6,19 @@ function App() {
   const [service1Requests, setService1Requests] = useState(0);
   const [service2Requests, setService2Requests] = useState(0);
 
-  const sendRequests = (service, count) => {
+  const sendRequests = (event, count) => {
     // Define the API endpoint (adjust the URL as needed)
     const API_ENDPOINT = process.env.REACT_APP_API_GATEWAY;
-    console.log(API_ENDPOINT)
-    console.log('test')
 
-    for (let i = 0; i < count; i++) {
+    // for (let i = 0; i < count; i++) {
       axios.post(`https://${API_ENDPOINT}/events`, {
-        eventType: service,
+        eventType: event, count: count
       }).then(() => {
-        console.log(`Request to ${service} sent successfully!`);
+        console.log(`${count} ${event} request(s) sent successfully!`);
       }).catch((error) => {
-        console.error(`Failed to send request to ${service}:`, error);
+        console.error(`Failed to send ${count} ${event} request(s):`, error);
       });
-    }
+    // }
   };
 
   return (
@@ -33,9 +31,9 @@ function App() {
             value={service1Requests} 
             onChange={(e) => setService1Requests(e.target.value)}
           /> 
-          requests to Service1
+          passive event(s)
         </label>
-        <button onClick={() => sendRequests('service1', service1Requests)}>Submit</button>
+        <button onClick={() => sendRequests('passiveEvent', service1Requests)}>Submit</button>
       </div>
       <div>
         <label>
@@ -45,9 +43,9 @@ function App() {
             value={service2Requests} 
             onChange={(e) => setService2Requests(e.target.value)}
           /> 
-          requests to Service2
+          action event(s)
         </label>
-        <button onClick={() => sendRequests('service2', service2Requests)}>Submit</button>
+        <button onClick={() => sendRequests('actionEvent', service2Requests)}>Submit</button>
       </div>
     </div>
   );
