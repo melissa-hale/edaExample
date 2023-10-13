@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const DASHBOARD_API_URL = process.env.DASHBOARD_API_URL;
+const DASHBOARD_API_URL = process.env.DASHBOARD_API_URL || "dashboard-api-production-c497.up.railway.app";
+console.log(DASHBOARD_API_URL)
 
 export const fetchTopicData = async (topic) => {
   try {
